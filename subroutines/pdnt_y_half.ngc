@@ -1,0 +1,11 @@
+o<pdnt_y_half> sub
+ 	
+; after zeroing y1 -> jog to y2 
+; in a square or circle -> goto half of y and zero position in the middle
+
+G90
+G1 Y[#5421/2] f300
+G10 L20 P0 Y0
+
+o<pdnt_y_half> endsub
+M2

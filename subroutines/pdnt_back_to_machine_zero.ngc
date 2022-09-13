@@ -1,0 +1,7 @@
+o<pdnt_back_to_machine_zero> sub
+
+G53 G0 Z0
+G53 G0 X0 Y0
+
+o<pdnt_back_to_machine_zero> endsub
+M2

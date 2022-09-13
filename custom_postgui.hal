@@ -1,0 +1,27 @@
+# Include your custom_postgui HAL commands here
+# This file will not be overwritten when you run PNCconf again
+
+
+# -------- GMOCCAPY Spindle Setup --------
+# Connect spindle information to gmoccapy spindle info display
+#net     spindle-at-speed                            => gmoccapy.spindle_at_speed_led 
+#net     spindle-vel-cmd-rps-abs                     => gmoccapy.spindle_feedback_bar
+
+
+# ---------- DECREASE VFD WATCHDOG TIMEOUT ----------
+
+setp     watchdog.timeout-0                    1.2
+
+#net probesignalmotion  =>  qtpyvcp.probe-in.out
+#net probesignalmotion  <=  qtpyvcp.probe-led.on
+
+loadusr -W hal_manualtoolchange
+
+
+net tool-change iocontrol.0.tool-change => hal_manualtoolchange.change
+
+net tool-changed iocontrol.0.tool-changed <= hal_manualtoolchange.changed
+
+net tool-number iocontrol.0.tool-prep-number => hal_manualtoolchange.number
+
+net tool-prepare-loopback iocontrol.0.tool-prepare => iocontrol.0.tool-prepared
