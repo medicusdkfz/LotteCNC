@@ -1,10 +1,21 @@
 # Halshow settings
 # This file is generated automatically.
-wm geometry . 700x475+610+302
+wm geometry . 700x475+905+114
 placeFrames 0.3
 set ::ratio 0.3
 set ::old_w_leftf 160
 set ::watchlist {
+    sig+3D-Probe-OUT
+    sig+DI_Probe-3D
+    sig+DI_Probe-3D-connected
+    sig+DI_Probe-3D-connected-not
+    sig+DI_Probe-TLS
+    sig+DO_TLS-dustremoval
+    sig+DO_ATC-dustremoval
+    sig+tlsactivesignal
+    sig+probeactivesignal
+    sig+probesignalmotion
+    sig+probeactivationtoor
 }
 set ::workmode watchhal
 set ::watchInterval 100

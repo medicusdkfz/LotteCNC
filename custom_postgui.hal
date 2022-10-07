@@ -1,27 +1,87 @@
 # Include your custom_postgui HAL commands here
 # This file will not be overwritten when you run PNCconf again
 
-
-# -------- GMOCCAPY Spindle Setup --------
-# Connect spindle information to gmoccapy spindle info display
-#net     spindle-at-speed                            => gmoccapy.spindle_at_speed_led 
-#net     spindle-vel-cmd-rps-abs                     => gmoccapy.spindle_feedback_bar
-
-
 # ---------- DECREASE VFD WATCHDOG TIMEOUT ----------
 
 setp     watchdog.timeout-0                    1.2
 
-#net probesignalmotion  =>  qtpyvcp.probe-in.out
-#net probesignalmotion  <=  qtpyvcp.probe-led.on
 
 loadusr -W hal_manualtoolchange
 
 
 net tool-change iocontrol.0.tool-change => hal_manualtoolchange.change
-
 net tool-changed iocontrol.0.tool-changed <= hal_manualtoolchange.changed
-
 net tool-number iocontrol.0.tool-prep-number => hal_manualtoolchange.number
-
 net tool-prepare-loopback iocontrol.0.tool-prepare => iocontrol.0.tool-prepared
+
+
+### Probe Basic Interface Signals
+
+################################################################
+# ---------- PROBE BASIC GUI----------
+
+# Probe Basic Timer
+net idle-on not.pbtime.in 
+net cycle-timer time.pb.start <= not.pbtime.out
+net cycle-seconds qtpyvcp.timerseconds.in <= time.pb.seconds
+net cycle-minutes qtpyvcp.timerminutes.in <= time.pb.minutes
+net cycle-hours qtpyvcp.timerhours.in <= time.pb.hours
+
+
+
+# Spindle Interface Bottom Right
+net spindle-rpm                 qtpyvcp.spindle-encoder-rpm.in
+net spindle-at-speed            qtpyvcp.spindle_at_speed.on 
+# Spindle Load Indicator
+net  spindle-current            scale.spindleload.in
+# Scale Gain
+# 100 % = 7.5 A
+# Meter goes to 125%
+# GAIN = 100% / 7.5A
+setp scale.spindleload.gain     13.33
+net  spindle-current-scaled     scale.spindleload.out   qtpyvcp.spindle-load-indicator.in-f
+setp qtpyvcp.spindle-load-indicator.max-val     125
+setp qtpyvcp.spindle-load-indicator.min-val     0
+
+
+# Tool Information
+#net toolnumber                  qtpyvcp.pb_current_tool.in
+#net current_pocket              qtpyvcp.pb_current_pocket.in
+#net tool-number              qtpyvcp.pb_prepared_tool.in
+#net pocketprepnumer             qtpyvcp.pb_prepared_pocket.in
+
+#net probe-signal-motion         qtpyvcp.probe-in.out
+net probesignalmotion         qtpyvcp.probe-led.on
+
+
+###### Status page
+
+# Connect Various Status Signals
+# not in use
+#net DI-CNC-pressure-alarm       qtpyvcp.air_pressure.on
+# not in use
+#net DO-CNC-vac-remote           qtpyvcp.vac_on.on
+#net DI-CNC-probe-ot-not         qtpyvcp.tls_ot.on
+
+net DI_Probe-3D-connected qtpyvcp.tls_ot.on
+
+# Spindle Signals for  Status Page
+# Temperatures
+net vfd-temp                    qtpyvcp.vfd_temp.in-f
+net spindle-current             qtpyvcp.spindle_current.in-f
+net SPINDLE-temp                qtpyvcp.spindle_temp.in-f
+# Spindle Sensors
+net DI_ATC-Tool-Sensor-presence          qtpyvcp.tool_in_spindle.on
+net DI_ATC-Drawbar-Sensor-open       qtpyvcp.tool_clamp_open.on
+
+
+# Probe Signals (live, activated)
+net DI_Probe-3D                qtpyvcp.probe_live.on
+net DI_Probe-TLS                  qtpyvcp.tls_live.on
+net tlsactivesignal           qtpyvcp.tls_active.on
+net probeactivesignal         qtpyvcp.probe_active.on
+net probesignalmotion         qtpyvcp.probe_out.on
+
+#setp qtpyvcp.1in4.flash-rate 1
+
+#net probebasic_whatever  some.pin.out qtpyvcp.1in4.on

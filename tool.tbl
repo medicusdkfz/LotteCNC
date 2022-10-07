@@ -1,25 +1,25 @@
-T0 P0 ; 
-T1 P1 D8.000000 ; 
-T2 P2 D10.000000 ; 
-T3 P3 D10.000000 ; 
-T6 P6 D8.000000 Z+47.828425 ;Zweizahn Alu SL 25mm 
-T7 P7 D6.000000 Z+37.361800 ;Schaftfräser Holz 22 mm 
-T12 P12 D8.000000 Z+64.847200 ;Schaftfräser Holz 8 mm SL 42 mm 
-T14 P14 D8.000000 Z+47.738088 ;Zweizahn Alu SL 25mm 
-T17 P17 D5.000000 ;Bohrer 5 mm 
-T24 P24 D4.000000 ;Einzahnfräser 4 mm 
-T39 P39 D8.000000 Z+33.620867 ;90° Fasenfräser 
-T40 P40 D5.000000 ;Schaftfräser SL 30mm 
-T43 P43 D4.000000 ;M5-10 Gewindewirbler 
-T46 P46 D3.000000 Z+31.400500 ;Schaftfräser Holz 3 mm SL 12 mm 
-T50 P50 D45.000000 Z+37.398900 ;Planfräser Holz 
-T64 P64 D6.000000 Z+50.918700 ;Alu VHM Bohrer 6 mm 
-T65 P65 D6.500000 Z+65.855500 ;Varioaufnahme 
-T68 P68 D6.000000 Z+39.041200 ;Schaftfräser Holz SL 22mm 
-T71 P71 D4.200000 Z+43.161900 ;Alu VHM Bohrer 4,2 mm 
-T72 P72 D8.500000 Z+79.420100 ;comment 
-T78 P78 D8.000000 Z+44.613200 ;Zweizahn Alu SL 25mm 
-T88 P88 D6.000000 Z+58.459600 ;Spiralfräser Holz 6mm SL 42mm 
-T99 P99 D1.870000 Z+79.439000 ;PROBE 
-T301 P301 D16.000000 Z+29.231000 ;Dovetail 7° 16mm SL 16mm 
-T200 P200 D12.000000 Z+55.781017 ;Dreischneider Alu 
+T0   P0   ; 
+T1   P1   D+8.000000 ; 
+T2   P2   D+10.000000 ; 
+T3   P3   D+10.000000 ; 
+T6   P6   D+8.000000 Z+47.828425 ;Zweizahn Alu SL 25mm 
+T7   P7   D+6.000000 Z+37.361800 ;Schaftfräser Holz 22 mm 
+T12  P12  D+8.000000 Z+64.847200 ;Schaftfräser Holz 8 mm SL 42 mm 
+T14  P14  D+8.000000 Z+47.738088 ;Zweizahn Alu SL 25mm 
+T17  P17  D+5.000000 ;Bohrer 5 mm 
+T24  P24  D+4.000000 ;Einzahnfräser 4 mm 
+T39  P39  D+8.000000 Z+33.564417 ;90° Fasenfräser 
+T40  P40  D+5.000000 ;Schaftfräser SL 30mm 
+T43  P43  D+4.000000 ;M5-10 Gewindewirbler 
+T46  P46  D+3.000000 Z+31.400500 ;Schaftfräser Holz 3 mm SL 12 mm 
+T50  P50  D+45.000000 Z+37.398900 ;Planfräser Holz 
+T64  P64  D+6.000000 Z+50.918700 ;Alu VHM Bohrer 6 mm 
+T65  P65  D+6.500000 Z+65.855500 ;Varioaufnahme 
+T68  P68  D+6.000000 Z+39.041200 ;Schaftfräser Holz SL 22mm 
+T71  P71  D+4.200000 Z+43.161900 ;Alu VHM Bohrer 4,2 mm 
+T72  P72  D+8.500000 Z+79.420100 ;comment 
+T78  P78  D+8.000000 Z+44.613200 ;Zweizahn Alu SL 25mm 
+T88  P88  D+6.000000 Z+58.459600 ;Spiralfräser Holz 6mm SL 42mm 
+T99  P99  D+1.870000 Z+79.439000 ;PROBE 
+T301 P301 D+16.000000 Z+29.231000 ;Dovetail 7° 16mm SL 16mm 
+T200 P200 D+12.000000 Z+55.781017 ;Dreischneider Alu 
