@@ -130,6 +130,13 @@ net     DO_TLS-dustremoval              <= hm2_7i76e.0.7i76.0.0.output-10       
 #  AXIS X JOINT 0
 #*******************
 
+setp   hm2_7i76e.0.encoder.00.counter-mode 0
+setp   hm2_7i76e.0.encoder.00.filter 1
+setp   hm2_7i76e.0.encoder.00.index-invert 0
+setp   hm2_7i76e.0.encoder.00.index-mask 0
+setp   hm2_7i76e.0.encoder.00.index-mask-invert 0
+setp   hm2_7i76e.0.encoder.00.scale  [JOINT_0]ENCODER_SCALE
+
 setp   pid.x.Pgain     [JOINT_0]P
 setp   pid.x.Igain     [JOINT_0]I
 setp   pid.x.Dgain     [JOINT_0]D
@@ -157,7 +164,7 @@ setp   hm2_7i76e.0.stepgen.00.position-scale  [JOINT_0]STEP_SCALE
 setp   hm2_7i76e.0.stepgen.00.step_type        0
 
 # Position control mode (0) and velocity control mode (1).
-setp   hm2_7i76e.0.stepgen.00.control-type     0
+setp   hm2_7i76e.0.stepgen.00.control-type     1
 #
 
 setp   hm2_7i76e.0.stepgen.00.maxaccel         [JOINT_0]STEPGEN_MAXACCEL
@@ -165,18 +172,18 @@ setp   hm2_7i76e.0.stepgen.00.maxvel           [JOINT_0]STEPGEN_MAXVEL
 
 # ---closedloop stepper signals velocity control mode---
 
-#net x-pos-cmd    <= joint.0.motor-pos-cmd
+net x-pos-cmd    <= joint.0.motor-pos-cmd
 #net x-vel-cmd    <= joint.0.vel-cmd
-#net x-output     <= hm2_7i76e.0.stepgen.00.velocity-cmd
-#net x-pos-fb     <= hm2_7i76e.0.encoder.00.position
-#net x-pos-fb     => joint.0.motor-pos-fb
+net x-output     <= hm2_7i76e.0.stepgen.00.velocity-cmd
+net x-pos-fb     <= hm2_7i76e.0.encoder.00.position
+net x-pos-fb     => joint.0.motor-pos-fb
 
 # ---openloop stepper signals position control mode ---
 
-net x-pos-cmd    <= joint.0.motor-pos-cmd
-net x-pos-cmd    => hm2_7i76e.0.stepgen.00.position-cmd
-net x-pos-fb     <= hm2_7i76e.0.stepgen.00.position-fb
-net x-pos-fb     => joint.0.motor-pos-fb
+#net x-pos-cmd    <= joint.0.motor-pos-cmd
+#net x-pos-cmd    => hm2_7i76e.0.stepgen.00.position-cmd
+#net x-pos-fb     <= hm2_7i76e.0.stepgen.00.position-fb
+#net x-pos-fb     => joint.0.motor-pos-fb
 
 # ---enable stepgen---
 

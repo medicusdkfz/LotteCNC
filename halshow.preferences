@@ -1,9 +1,9 @@
 # Halshow settings
 # This file is generated automatically.
-wm geometry . 700x475+905+114
-placeFrames 0.3
-set ::ratio 0.3
-set ::old_w_leftf 160
+wm geometry . 587x475+849+27
+placeFrames 0.3691860465116279
+set ::ratio 0.3691860465116279
+set ::old_w_leftf 254
 set ::watchlist {
     sig+3D-Probe-OUT
     sig+DI_Probe-3D
@@ -16,6 +16,14 @@ set ::watchlist {
     sig+probeactivesignal
     sig+probesignalmotion
     sig+probeactivationtoor
+    pin+hm2_7i76e.0.encoder.00.count
+    pin+hm2_7i76e.0.encoder.00.position
+    param+hm2_7i76e.0.encoder.00.scale
+    pin+ini.0.ferror
+    pin+ini.0.min_ferror
+    pin+joint.0.motor-pos-cmd
+    pin+joint.0.vel-cmd
+    pin+ini.0.max_acceleration
 }
 set ::workmode watchhal
 set ::watchInterval 100
