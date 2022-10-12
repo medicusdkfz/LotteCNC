@@ -1,7 +1,7 @@
 # Erstellt von PNCconf am Sat Oct 31 16:55:48 2020
 # Using LinuxCNC version:  Master (2.9)
 # Änderungen an dieser Datei werden beim nächsten
-# overwritten when you run PNCconf again...
+# overwritten when you run PNCconf again
 
 loadrt [KINS]KINEMATICS
 # Note: num_dio, num_AIO are required for PB (+some extras)
