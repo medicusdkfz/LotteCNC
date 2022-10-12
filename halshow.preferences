@@ -1,36 +1,36 @@
 # Halshow settings
 # This file is generated automatically.
-wm geometry . 1064x731+846+50
+wm geometry . 924x731+856+27
 placeFrames 0.3691860465116279
 set ::ratio 0.3691860465116279
 set ::old_w_leftf 254
 set ::watchlist {
-    pin+hm2_7i76e.0.stepgen.00.control-type
-    pin+hm2_7i76e.0.stepgen.00.position-cmd
-    pin+hm2_7i76e.0.stepgen.00.position-fb
-    pin+hm2_7i76e.0.stepgen.00.velocity-cmd
-    pin+hm2_7i76e.0.stepgen.00.velocity-fb
-    pin+hm2_7i76e.0.encoder.00.count
-    pin+hm2_7i76e.0.encoder.00.position
-    pin+hm2_7i76e.0.encoder.00.rawcounts
-    pin+axis.x.pos-cmd
-    pin+joint.0.homed
-    pin+joint.0.homing
-    pin+joint.0.motor-pos-cmd
-    pin+joint.0.motor-pos-fb
-    pin+joint.0.vel-cmd
-    pin+halui.axis.x.pos-feedback
-    pin+halui.axis.x.pos-commanded
-    pin+pid.x.error
-    pin+pid.x.maxerror
-    pin+pid.x.deadband
-    pin+pid.x.output
-    pin+pid.x.feedback
-    pin+pid.x.command
-    pin+mux2.x.in0
-    pin+mux2.x.in1
-    pin+mux2.x.out
-    pin+mux2.x.sel
+    pin+joint.1.homed
+    pin+joint.1.homing
+    pin+joint.1.f-error
+    pin+joint.1.motor-pos-cmd
+    pin+joint.1.pos-cmd
+    pin+joint.1.pos-fb
+    pin+joint.2.homed
+    pin+joint.2.homing
+    pin+joint.2.f-error
+    pin+joint.2.motor-pos-cmd
+    pin+joint.2.pos-cmd
+    pin+joint.2.pos-fb
+    pin+ini.1.ferror
+    pin+ini.1.min_ferror
+    pin+pid.y.error
+    pin+pid.y2.error
+    pin+pid.y.output
+    pin+pid.y2.output
+    pin+mux2.y1.out
+    pin+mux2.y2.out
+    pin+mux2.y1.sel
+    pin+mux2.y2.sel
+    pin+hm2_7i76e.0.encoder.03.count
+    pin+hm2_7i76e.0.encoder.03.rawcounts
+    pin+hm2_7i76e.0.encoder.03.index-enable
+    pin+hm2_7i76e.0.encoder.03.input-index
 }
 set ::workmode watchhal
 set ::watchInterval 100
