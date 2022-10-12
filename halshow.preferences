@@ -1,29 +1,36 @@
 # Halshow settings
 # This file is generated automatically.
-wm geometry . 587x475+849+27
+wm geometry . 1064x731+846+50
 placeFrames 0.3691860465116279
 set ::ratio 0.3691860465116279
 set ::old_w_leftf 254
 set ::watchlist {
-    sig+3D-Probe-OUT
-    sig+DI_Probe-3D
-    sig+DI_Probe-3D-connected
-    sig+DI_Probe-3D-connected-not
-    sig+DI_Probe-TLS
-    sig+DO_TLS-dustremoval
-    sig+DO_ATC-dustremoval
-    sig+tlsactivesignal
-    sig+probeactivesignal
-    sig+probesignalmotion
-    sig+probeactivationtoor
+    pin+hm2_7i76e.0.stepgen.00.control-type
+    pin+hm2_7i76e.0.stepgen.00.position-cmd
+    pin+hm2_7i76e.0.stepgen.00.position-fb
+    pin+hm2_7i76e.0.stepgen.00.velocity-cmd
+    pin+hm2_7i76e.0.stepgen.00.velocity-fb
     pin+hm2_7i76e.0.encoder.00.count
     pin+hm2_7i76e.0.encoder.00.position
-    param+hm2_7i76e.0.encoder.00.scale
-    pin+ini.0.ferror
-    pin+ini.0.min_ferror
+    pin+hm2_7i76e.0.encoder.00.rawcounts
+    pin+axis.x.pos-cmd
+    pin+joint.0.homed
+    pin+joint.0.homing
     pin+joint.0.motor-pos-cmd
+    pin+joint.0.motor-pos-fb
     pin+joint.0.vel-cmd
-    pin+ini.0.max_acceleration
+    pin+halui.axis.x.pos-feedback
+    pin+halui.axis.x.pos-commanded
+    pin+pid.x.error
+    pin+pid.x.maxerror
+    pin+pid.x.deadband
+    pin+pid.x.output
+    pin+pid.x.feedback
+    pin+pid.x.command
+    pin+mux2.x.in0
+    pin+mux2.x.in1
+    pin+mux2.x.out
+    pin+mux2.x.sel
 }
 set ::workmode watchhal
 set ::watchInterval 100

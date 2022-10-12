@@ -13,20 +13,6 @@ loadrt pid names=pid.x,pid.y,pid.y2,pid.z,pid.s
 loadrt watchdog  num_inputs=1
 loadrt estop_latch
 
-addf hm2_7i76e.0.read               servo-thread
-addf motion-command-handler         servo-thread
-addf motion-controller              servo-thread
-addf pid.x.do-pid-calcs             servo-thread
-addf pid.y.do-pid-calcs             servo-thread
-addf pid.y2.do-pid-calcs            servo-thread
-addf pid.z.do-pid-calcs             servo-thread
-addf pid.s.do-pid-calcs             servo-thread
-
-setp hm2_7i76e.0.dpll.01.timer-us           -50
-setp hm2_7i76e.0.stepgen.timer-number       1
-addf estop-latch.0                  servo-thread
-
-
 ################################
 # CUSTOM RT Components
 ################################
@@ -45,6 +31,26 @@ loadrt  ilowpass            names=ilowpass.x.enc-smooth,ilowpass.y.enc-smooth,il
 #,ilowpass.a.enc-smooth		
 loadrt  time                names=time.pb
 loadrt  scale               names=scale.spindleload
+
+loadrt mux2                 names=mux2.x
+
+addf hm2_7i76e.0.read               servo-thread
+addf motion-command-handler         servo-thread
+addf motion-controller              servo-thread
+
+addf mux2.x                         servo-thread
+
+addf pid.x.do-pid-calcs             servo-thread
+addf pid.y.do-pid-calcs             servo-thread
+addf pid.y2.do-pid-calcs            servo-thread
+addf pid.z.do-pid-calcs             servo-thread
+addf pid.s.do-pid-calcs             servo-thread
+
+setp hm2_7i76e.0.dpll.01.timer-us           -50
+setp hm2_7i76e.0.stepgen.timer-number       1
+addf estop-latch.0                  servo-thread
+
+
 
 
 
@@ -154,6 +160,7 @@ net x-pos-cmd       =>  pid.x.command
 net x-pos-fb        =>  pid.x.feedback
 net x-output        <=  pid.x.output
 
+
 # Step Gen signals/setup
 
 setp   hm2_7i76e.0.stepgen.00.dirsetup        [JOINT_0]DIRSETUP
@@ -170,8 +177,14 @@ setp   hm2_7i76e.0.stepgen.00.control-type     1
 setp   hm2_7i76e.0.stepgen.00.maxaccel         [JOINT_0]STEPGEN_MAXACCEL
 setp   hm2_7i76e.0.stepgen.00.maxvel           [JOINT_0]STEPGEN_MAXVEL
 
-# ---closedloop stepper signals velocity control mode---
+# MUX TEST
 
+#net home2mux2x      joint.0.homed   mux2.x.sel
+#net mux2x-in0       mux2.x.in0        hm2_7i76e.0.stepgen.00.position-fb
+#net x-pos-fb        mux2.x.in1 
+#net x-pos-mux2      mux2.x.out
+
+# ---closedloop stepper signals velocity control mode---
 net x-pos-cmd    <= joint.0.motor-pos-cmd
 #net x-vel-cmd    <= joint.0.vel-cmd
 net x-output     <= hm2_7i76e.0.stepgen.00.velocity-cmd
