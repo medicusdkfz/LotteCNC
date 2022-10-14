@@ -23,14 +23,12 @@ set ::watchlist {
     pin+pid.y2.error
     pin+pid.y.output
     pin+pid.y2.output
-    pin+mux2.y1.out
-    pin+mux2.y2.out
-    pin+mux2.y1.sel
-    pin+mux2.y2.sel
     pin+hm2_7i76e.0.encoder.03.count
     pin+hm2_7i76e.0.encoder.03.rawcounts
     pin+hm2_7i76e.0.encoder.03.index-enable
     pin+hm2_7i76e.0.encoder.03.input-index
+    pin+hm2_7i76e.0.7i76.0.0.input-17
+    pin+hm2_7i76e.0.7i76.0.0.input-17-not
 }
 set ::workmode watchhal
 set ::watchInterval 100
