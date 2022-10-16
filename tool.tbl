@@ -1,5 +1,5 @@
 T0   P0   ; 
-T1   P1   D+8.000000 ; 
+T1   P1   D+8.000000 Z+37.672750 ; 
 T2   P2   D+10.000000 ; 
 T3   P3   D+10.000000 ; 
 T6   P6   D+8.000000 Z+47.828425 ;Zweizahn Alu SL 25mm 
@@ -8,7 +8,7 @@ T12  P12  D+8.000000 Z+64.847200 ;Schaftfräser Holz 8 mm SL 42 mm
 T14  P14  D+8.000000 Z+47.738088 ;Zweizahn Alu SL 25mm 
 T17  P17  D+5.000000 ;Bohrer 5 mm 
 T24  P24  D+4.000000 ;Einzahnfräser 4 mm 
-T39  P39  D+8.000000 Z+33.599417 ;90° Fasenfräser 
+T39  P39  D+8.000000 Z+33.946750 ;90° Fasenfräser 
 T40  P40  D+5.000000 ;Schaftfräser SL 30mm 
 T43  P43  D+4.000000 ;M5-10 Gewindewirbler 
 T46  P46  D+3.000000 Z+31.400500 ;Schaftfräser Holz 3 mm SL 12 mm 
