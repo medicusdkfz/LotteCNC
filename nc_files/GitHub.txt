@@ -1,0 +1,56 @@
+### Anlegen eines SSH-Keys für GitHub: ###
+
+ls ~/.ssh/
+
+ssh-keygen -t ed25519 -C "pierre.branitzki@me.com"
+
+eval "$(ssh-agent -s)"
+
+ssh-add ~/.ssh/id_ed25519.pub
+
+###########################################
+
+mit dem Befehl
+cat ~/.ssh/id_ed25519.pub 
+den SSH-Key im Terminal anzeigen lassen und kopieren
+
+anschließend unter Settings/SSH und PGB bei GitHub eintragen
+
+### anschließender Test im Terminal #######
+
+ssh -T git@github.com
+
+
+
+### ins lokale GitVerzeichnis gehen: ######
+
+cd ~/linuxcnc/configs/probe_basic/
+
+wenn noch nicht geschehen, so kann man in diesem Ordner ein lokales Git-Verzeichnis (Hauptzweig) anlegen mit dem Befehl:
+
+git init
+
+
+### wenn Remotezugriff noch nicht angelegt, dann SSH-Adresse aus dem RemoteRepo 
+unter Code kopieren und wie unten eintragen #######
+
+git remote add origin git@github.com:medicusdkfz/LotteCNC.git
+
+git pull origin main           ### liest den Entwicklungsstand aus dem RemoteRepo aus ###
+
+git add .                      ### fügt alle Files der Staging-Zone zu (es braucht anschließend ein commit zur Freigabe!) ###
+
+git commit -m "changes ..."    ### speichert Entwicklungsstand lokal ###
+
+git push origin main           ### überträgt den Entwicklungsstand des Hauptzweiges (main) ins RemoteRepo ###
+
+git fetch origin main          ### ruft Entwicklungsstand des Hauptzweiges (main) aus RemoteRepo ins lokale Repo ab ###
+
+git merge                      ### es braucht jedoch nach dem fetch ein merge um ggf. Konflikte aufzulösen ###
+
+git pull origin main           ### vereint fetch und merge in einem Befehl ###
+
+git clone --branch main git@github.com:medicusdkfz/LotteCNC.git    ### Klont ein RemoteRepoZweig (hier main) in das aktuelle (leere) Verzeichnis ###
+
+
+git checkout und git branch    ### springen zwischen den Zweigen oder legen sie an... ###
